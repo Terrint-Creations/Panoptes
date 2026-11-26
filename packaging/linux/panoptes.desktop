@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Panoptes
+GenericName=OSINT Investigation
+Comment=The many-eyed OSINT tool
+Exec=@@EXEC@@ %F
+Icon=panoptes
+Terminal=false
+Categories=Network;Utility;Security;
+Keywords=osint;investigation;search;username;recon;
+StartupWMClass=Panoptes

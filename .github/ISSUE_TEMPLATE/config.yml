@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Join the Panoptes project
+    url: https://panoptes.terrint.com/#join
+    about: Ask to become a project member
+  - name: Report a security problem
+    url: https://github.com/Terrint-Creations/Panoptes/security/advisories/new
+    about: Please report vulnerabilities privately

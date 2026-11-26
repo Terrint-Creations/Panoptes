@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.11", "3.13"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Qt system libraries
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libegl1 libgl1 libxkbcommon0 libfontconfig1 libdbus-1-3
+      - name: Install
+        run: python -m pip install ".[gui]"
+      - name: Byte-compile
+        run: python -m compileall -q panoptes
+      - name: CLI smoke test
+        run: |
+          panoptes version
+          panoptes --help
+          panoptes sources
+      - name: Import every module
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -c "import pkgutil, importlib, panoptes; [importlib.import_module(m.name) for m in pkgutil.walk_packages(panoptes.__path__, 'panoptes.') if not m.name.endswith('__main__')]"
+
+  linux-installer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install with install.sh
+        run: ./install.sh --minimal
+      - name: Run the installed command
+        run: ~/.local/bin/panoptes version

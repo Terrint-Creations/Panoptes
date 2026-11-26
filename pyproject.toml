@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "panoptes"
+version = "1.0.0"
+description = "The many-eyed OSINT tool. One search, every source, merged and verified results."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Panoptes contributors" }]
+keywords = ["osint", "reconnaissance", "investigation", "username", "sherlock", "maigret", "security"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Information Technology",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "Topic :: Internet",
+]
+dependencies = [
+    "httpx[socks]>=0.27",
+    "pillow>=10",
+    "pypdf>=4",
+    "dnspython>=2.4",
+    "phonenumbers>=8.13",
+    "rich>=13",
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+gui = ["PySide6>=6.6"]
+email = ["holehe>=1.61"]
+phone = ["ignorant>=1.2"]
+faces = ["opencv-python-headless>=4.8", "numpy"]
+ocr = ["rapidocr-onnxruntime>=1.3"]
+ai = ["anthropic>=1.0"]
+all = ["PySide6>=6.6", "holehe>=1.61", "ignorant>=1.2", "opencv-python-headless>=4.8", "numpy",
+       "rapidocr-onnxruntime>=1.3", "anthropic>=1.0"]
+
+[project.urls]
+Homepage = "https://panoptes.terrint.com"
+Source = "https://github.com/Terrint-Creations/Panoptes"
+Issues = "https://github.com/Terrint-Creations/Panoptes/issues"
+Changelog = "https://github.com/Terrint-Creations/Panoptes/blob/main/CHANGELOG.md"
+
+[project.scripts]
+panoptes = "panoptes.cli:main"
+
+[project.gui-scripts]
+panoptes-gui = "panoptes.gui.app:main"
+
+[tool.setuptools.packages.find]
+include = ["panoptes*"]

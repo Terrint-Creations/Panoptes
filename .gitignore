@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Local build output (Panoptes.exe embeds the local Python and folder paths - build it yourself)
+Panoptes.exe
+build_log.txt
+packaging/panoptes.ico
+
+# Investigation output - never commit real search results
+reports/
+panoptes_*.json
+panoptes_*.html
+panoptes_*.csv
+*.stix.json
+*.log
+
+# Local config / secrets
+.env
+config.toml
