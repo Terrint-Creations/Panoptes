@@ -7,6 +7,7 @@ rem   build_exe.bat portable    standalone PyInstaller build in dist\ (no Python
 rem                             but unsigned PyInstaller apps are often flagged by antivirus heuristics)
 cd /d "%~dp0"
 python -m pip install -e ".[all]" || goto :error
+python -m panoptes update || echo Site database download failed - run "panoptes update" later.
 python packaging\build_launcher.py || goto :error
 if /i "%1"=="portable" (
     python -m pip install pyinstaller pillow pypdf || goto :error

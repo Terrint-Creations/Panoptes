@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panoptes · the many-eyed OSINT tool</title>
+<meta name="description" content="Panoptes is a free, open source OSINT tool for Windows and Linux. One search fans out to hundreds of techniques and thousands of sites, then merges, verifies and follows what it finds.">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="canonical" href="https://www.panoptes.terrint.com/">
+<link rel="icon" href="assets/panoptes.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Panoptes · the many-eyed OSINT tool">
+<meta property="og:description" content="One search. Every source. Merged, verified, followed. Free and open source, forever.">
+<meta property="og:url" content="https://www.panoptes.terrint.com/">
+<meta property="og:image" content="https://www.panoptes.terrint.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Panoptes home">
+      <svg viewBox="0 0 256 256" aria-hidden="true"><circle cx="128" cy="128" r="112.6" fill="#0f0e0c" stroke="#d4a017" stroke-width="18"/><circle cx="128" cy="128" r="64" fill="#d4a017"/><circle cx="128" cy="128" r="28" fill="#0f0e0c"/><circle cx="110" cy="110" r="9" fill="#fff"/></svg>
+      Panoptes
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="#about">About</a>
+      <a href="#how">How it works</a>
+      <a href="#use">Use it</a>
+      <a href="guide.html">Guide</a>
+      <a href="#download">Download</a>
+      <a href="#join">Join</a>
+      <a class="gh" href="https://github.com/Terrint-Creations/Panoptes">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <canvas class="eyes" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="kicker">Open source OSINT · Windows &amp; Linux</p>
+    <h1>A hundred eyes on <em>one</em> question.</h1>
+    <p class="lede">Give Panoptes whatever you know about a subject: a username, an email, a phone number, a name, a photo or a domain. It sends that to every technique that can say something about it, then merges what comes back, checks it against itself, scores it and follows the leads.</p>
+    <div class="cta">
+      <a class="btn solid" href="#download">Download Panoptes <small data-version>v1.0.0</small></a>
+      <a class="btn" href="guide.html">Read the guide</a>
+    </div>
+    <p class="meta-line"><span>GPL-3.0</span><span>Free forever</span><span>No account, no telemetry</span></p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">01 · The name</div>
+      <h2>Named for the giant who <em>never</em> slept.</h2>
+    </div>
+    <div class="sec-body myth">
+      <div class="prose">
+        <p>In Greek myth, <strong>Argus Panoptes</strong> was a giant covered in eyes. Hera set him to watch over Io because nothing could get past him: when some of his eyes closed to sleep, the others stayed open. His name means <em>all-seeing</em>.</p>
+        <p>No single OSINT tool sees everything. A username checker misses what a breach index knows, a breach index can't read a photo, and a photo tool has never heard of the company register. Each one has blind spots.</p>
+        <p><strong>Panoptes puts them together.</strong> It is made of original code and of the ideas and data behind well known open source tools, rebuilt so they work as one. Where one eye is closed, another is open.</p>
+      </div>
+      <blockquote>
+        His head was ringed with a hundred eyes. Two at a time they took their rest, while all the others kept watch.
+        <cite>Ovid, Metamorphoses I, paraphrased</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">02 · How it works</div>
+      <h2>Not a launcher for other tools. One tool that thinks across them.</h2>
+    </div>
+    <div class="sec-body">
+      <ol class="pipe">
+        <li><h3>Read the input</h3><p>Panoptes works out what you typed: a handle, an address, a number, coordinates, a file. Or you fill in everything you know.</p></li>
+        <li><h3>Fan out</h3><p>Every relevant source runs at once: thousands of sites, registries, breach indexes, maps, image and metadata tools.</p></li>
+        <li><h3>Merge</h3><p>Duplicate results from different techniques become one finding that lists everything that agreed on it.</p></li>
+        <li><h3>Verify</h3><p>Findings are cross-checked. Each gets a confidence score, and contradictions are flagged instead of hidden.</p></li>
+        <li><h3>Follow</h3><p>Trusted leads become new searches, so a new email or alias is investigated too. Guesses stay guesses.</p></li>
+      </ol>
+      <div class="trust">
+        <div><b>Cooperative mode</b><p>Sources share what they learn. A fact is only used when you gave it, a source is very sure of it, or two independent sources agree.</p></div>
+        <div><b>Trust that is earned</b><p>A common first name or a generated username can't drag strangers into a case. Weak leads are listed but not followed.</p></div>
+        <div><b>One case, many views</b><p>An overview, per-finding evidence and a relationship graph. Export to HTML, JSON, CSV or STIX 2.1.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">03 · The eyes</div>
+      <h2>What Panoptes can see.</h2>
+    </div>
+    <div class="sec-body">
+      <table class="caps">
+        <tbody>
+          <tr><th>Usernames to accounts</th><td>About 11,400 sites from four open databases, each one voting on every site, with a random-username check to remove false positives.</td><td class="from">Sherlock, WhatsMyName, Maigret, social-analyzer</td></tr>
+          <tr><th>Emails</th><td>Which services an address is registered on, Gravatar, PGP keys, public calendars, and likely addresses guessed from a username and then verified.</td><td class="from">Holehe, Blackbird, GHunt-style</td></tr>
+          <tr><th>Phone numbers</th><td>Numbering-plan analysis, carrier and region, registrations on Instagram, Snapchat and Amazon, and search leads.</td><td class="from">PhoneInfoga, Moriarty, Ignorant</td></tr>
+          <tr><th>Breaches and leaks</th><td>Which breaches and infostealer logs mention an address. Presence only: passwords are never stored.</td><td class="from">HIBP, XposedOrNot, LeakCheck, Hudson Rock</td></tr>
+          <tr><th>Profiles and social</th><td>Names, bios, locations, links, posting-hour time zones and the people a profile mentions, on X, Instagram, TikTok, Reddit, Telegram, GitHub and many more.</td><td class="from">twint forks, Toutatis, Instaloader</td></tr>
+          <tr><th>Photos and files</th><td>EXIF and GPS, OCR, face matching against collected profile pictures, reverse image search and where-was-this-taken estimates.</td><td class="from">ExifTool, OpenCV, Yandex, Google Lens</td></tr>
+          <tr><th>Places</th><td>Geocoding, nearby landmarks, sun position and shadows, historical weather and satellite and street-level links.</td><td class="from">GEOINT toolkits, SunCalc</td></tr>
+          <tr><th>Companies and people of record</th><td>Company registers, officers, sanctions and PEP lists, court records, offshore leaks and public registries.</td><td class="from">OpenCorporates, GLEIF, SEC, ICIJ, LittleSis</td></tr>
+          <tr><th>Domains and IPs</th><td>Subdomains, DNS, certificates, crawled documents, historical URLs, lookalike domains, geolocation and reputation.</td><td class="from">Amass, Subfinder, theHarvester, dnstwist</td></tr>
+          <tr><th>Dark web and crypto</th><td>Onion search and OnionScan-style audits through a built-in Tor connection. Bitcoin and Ethereum wallet activity.</td><td class="from">Ahmia, Torch, OnionScan</td></tr>
+          <tr><th>Correlation</th><td>An identity summary, severity-rated insights and an exposure score built from everything above.</td><td class="from">SpiderFoot-style rules</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Most sources work with no setup. A few get better with a free API key or a burner account's login, which you add in Settings.<br>The right column names the projects whose ideas or data each capability builds on.</p>
+    </div>
+  </div>
+</section>
+
+<section id="use">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">04 · Use it</div>
+      <h2>Type what you know. Read what it found.</h2>
+    </div>
+    <div class="sec-body">
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" aria-controls="p-app" id="t-app">Desktop app</button>
+        <button role="tab" aria-selected="false" aria-controls="p-cli" id="t-cli">Terminal</button>
+      </div>
+      <div class="panel two" id="p-app" role="tabpanel" aria-labelledby="t-app">
+        <ol class="steps">
+          <li><b>Search.</b> Type a username, email, phone, name, domain, IP or coordinates in the top bar, or drop in a photo. Panoptes detects the type.</li>
+          <li><b>Or open a full investigation.</b> Fill in everything you know about one subject and pick which capabilities to use.</li>
+          <li><b>Watch it work.</b> Findings stream in as each source reports. Stop at any time and you keep everything found so far.</li>
+          <li><b>Read the case.</b> The Overview sums up who the subject seems to be. Details shows the evidence for each finding. Graph shows how it all connects.</li>
+        </ol>
+        <div class="prose">
+          <p>Every search is saved as a case you can reopen and extend. Right-click anything in the graph to search from it.</p>
+          <p>Use the <strong>Resources</strong> box to pick Light, Balanced or Heavy. Light keeps your computer responsive and still checks the same sites, just more slowly.</p>
+          <p><a href="guide.html">Read the full guide</a> for settings, logins and tips.</p>
+        </div>
+      </div>
+      <div class="panel" id="p-cli" role="tabpanel" aria-labelledby="t-cli" hidden>
+<pre><span class="c"># auto-detects the type of each target</span>
+<span class="p">$ </span>panoptes search jdoe42
+<span class="p">$ </span>panoptes search jane@example.com -d 2 -o report.html
+<span class="p">$ </span>panoptes search "+44 20 7946 0958"
+<span class="p">$ </span>panoptes search photo.jpg
+
+<span class="c"># everything you know about one subject</span>
+<span class="p">$ </span>panoptes investigate --name "Jane Doe" -u jdoe -e jane@example.com --location Oslo
+
+<span class="c"># saved cases, exports, settings</span>
+<span class="p">$ </span>panoptes cases list
+<span class="p">$ </span>panoptes cases export 3 case.stix.json
+<span class="p">$ </span>panoptes config set hibp_api_key YOUR_KEY</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">05 · Download</div>
+      <h2>Install in a couple of minutes.</h2>
+    </div>
+    <div class="sec-body">
+      <div class="dl">
+        <div>
+          <h3>Windows</h3>
+          <p class="req">Windows 10 or 11 · Python 3.11+</p>
+          <ol>
+            <li>Install Python from <a href="https://www.python.org/downloads/">python.org</a> and tick <em>Add python.exe to PATH</em>.</li>
+            <li>Unzip Panoptes into a folder you'll keep, like Documents.</li>
+            <li>Double-click <code>install.bat</code>. Panoptes appears on your Desktop and in the Start Menu.</li>
+          </ol>
+          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows.zip">Download for Windows <small>.zip</small></a>
+        </div>
+        <div>
+          <h3>Linux</h3>
+          <p class="req">Any modern distro · Python 3.11+</p>
+          <ol>
+            <li>Unpack the archive: <code>tar xzf panoptes-linux.tar.gz</code></li>
+            <li>Run <code>./install.sh</code> inside the folder. Nothing is installed system-wide.</li>
+            <li>Start <code>panoptes-gui</code> from your app menu, or <code>panoptes</code> in a terminal.</li>
+          </ol>
+          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/panoptes-linux.tar.gz">Download for Linux <small>.tar.gz</small></a>
+        </div>
+      </div>
+      <div class="dl-more">
+        <a href="https://github.com/Terrint-Creations/Panoptes/releases">All releases</a>
+        <a href="https://github.com/Terrint-Creations/Panoptes">Source code</a>
+        <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/CHANGELOG.md">What's new</a>
+        <span>Or: <code>pip install "panoptes[all] @ git+https://github.com/Terrint-Creations/Panoptes"</code></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="free">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">06 · Open source</div>
+      <h2>Free today. Free <em>forever</em>.</h2>
+    </div>
+    <div class="sec-body free">
+      <p class="big">Panoptes will never have a paid tier, a premium edition or a locked feature. It belongs to the people who use it and build it.</p>
+      <ul class="facts">
+        <li><b>License</b><span>GNU GPL v3.0 or later. Use it, study it, change it and share it. Every published version stays open.</span></li>
+        <li><b>Fork it</b><span>You never need permission. Take Panoptes in any direction you want, under the same license.</span></li>
+        <li><b>Contribute</b><span>Send issues and pull requests. Maintainers review each one, and some are accepted while others are declined or sent back.</span></li>
+        <li><b>Privacy</b><span>No accounts, no telemetry, no cloud. Your cases and keys stay on your computer.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">07 · Join</div>
+      <h2>Become part of the project.</h2>
+    </div>
+    <div class="sec-body join">
+      <div class="prose">
+        <p>Anyone can contribute without asking: open an issue or a pull request on <a href="https://github.com/Terrint-Creations/Panoptes">GitHub</a>.</p>
+        <p>If you want a bigger role, like looking after a group of sources, reviewing pull requests, triaging issues or working on the docs and this site, ask to become a <strong>Panoptes project member</strong> here.</p>
+        <p>Membership is voluntary and unpaid. It may come with triage or write access to the repository.</p>
+        <p><strong>Joining the Panoptes project does not make you part of Terrint Creations.</strong> It doesn't create employment, a partnership or any right to speak for Terrint. Read the <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/GOVERNANCE.md">governance notes</a>.</p>
+      </div>
+      <form action="https://formsubmit.co/FORMSUBMIT_ID" method="POST">
+        <input type="hidden" name="_subject" value="Panoptes: request to join the project">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.panoptes.terrint.com/thanks.html">
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row">
+          <label>Name or alias<input name="name" required maxlength="80" autocomplete="nickname"></label>
+          <label>Email<input type="email" name="email" required maxlength="120" autocomplete="email"></label>
+        </div>
+        <div class="row">
+          <label>GitHub username<input name="github" required maxlength="40" pattern="[A-Za-z0-9-]{1,39}" title="Your GitHub username, letters, numbers and hyphens"></label>
+          <label>I'd like to help with
+            <select name="area" required>
+              <option value="">Choose one</option>
+              <option>Sources and site coverage</option>
+              <option>Core engine and correlation</option>
+              <option>Desktop app</option>
+              <option>Linux and packaging</option>
+              <option>Reviewing and triage</option>
+              <option>Docs, guide and website</option>
+              <option>Something else</option>
+            </select>
+          </label>
+        </div>
+        <label>About you <span class="opt">(experience, past contributions, links)</span><textarea name="about" required maxlength="3000"></textarea></label>
+        <label class="check"><input type="checkbox" name="understands" value="yes" required> I understand that joining the Panoptes project does not make me part of Terrint Creations, and that I will only use Panoptes legally and responsibly.</label>
+        <button class="btn solid" type="submit">Send request</button>
+        <p class="fine">Your request goes to the maintainers by email through FormSubmit. It is only used to answer you.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="responsible">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div class="num">08 · Responsibility</div>
+      <h2>Powerful tools need careful hands.</h2>
+    </div>
+    <div class="sec-body">
+      <div class="warn">
+        <p style="margin-top:0">Panoptes only collects information that is already public, but putting it together can reveal a lot about a person. <b>Only investigate people and organisations you have a legitimate reason and the legal right to look into</b>: yourself, your own organisation, an authorised engagement, journalism or research with an ethical basis.</p>
+        <p style="margin-bottom:0">Never use it to stalk, harass, dox or intimidate anyone. Use burner accounts for site logins, and follow the laws and terms that apply to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="https://www.terrint.com">A Terrint Creations project</a>
+    <span>GPL-3.0 · Free forever</span>
+    <nav>
+      <a href="guide.html">Guide</a>
+      <a href="https://github.com/Terrint-Creations/Panoptes">GitHub</a>
+      <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/CONTRIBUTING.md">Contributing</a>
+      <a href="https://github.com/Terrint-Creations/Panoptes/security/advisories/new">Report a vulnerability</a>
+      <a href="https://www.terrint.com">terrint.com</a>
+    </nav>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -22,8 +22,8 @@ jobs:
       - name: Build download bundles
         run: |
           ver="${GITHUB_REF_NAME#v}"
-          git archive --format=zip --prefix="Panoptes-$ver/" -o "dist/Panoptes-$ver-windows.zip" HEAD
-          git archive --format=tar.gz --prefix="panoptes-$ver/" -o "dist/panoptes-$ver-linux.tar.gz" HEAD
+          git archive --format=zip --prefix="Panoptes-$ver/" -o "dist/Panoptes-windows.zip" HEAD
+          git archive --format=tar.gz --prefix="panoptes-$ver/" -o "dist/panoptes-linux.tar.gz" HEAD
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}

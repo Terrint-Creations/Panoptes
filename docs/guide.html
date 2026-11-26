@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panoptes guide · install, search, read a case</title>
+<meta name="description" content="How to install Panoptes on Windows and Linux, run your first search, read the results, add API keys and logins, and use the terminal.">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="canonical" href="https://www.panoptes.terrint.com/guide.html">
+<link rel="icon" href="assets/panoptes.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Panoptes home">
+      <svg viewBox="0 0 256 256" aria-hidden="true"><circle cx="128" cy="128" r="112.6" fill="#0f0e0c" stroke="#d4a017" stroke-width="18"/><circle cx="128" cy="128" r="64" fill="#d4a017"/><circle cx="128" cy="128" r="28" fill="#0f0e0c"/><circle cx="110" cy="110" r="9" fill="#fff"/></svg>
+      Panoptes
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="./#about">About</a>
+      <a href="./#how">How it works</a>
+      <a href="guide.html" aria-current="page">Guide</a>
+      <a href="./#download">Download</a>
+      <a href="./#join">Join</a>
+      <a class="gh" href="https://github.com/Terrint-Creations/Panoptes">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap doc">
+  <aside class="toc" aria-label="On this page">
+    <b>On this page</b>
+    <a href="#install">Install</a>
+    <a href="#first">Your first search</a>
+    <a href="#reading">Reading a case</a>
+    <a href="#investigate">Full investigations</a>
+    <a href="#keys">API keys</a>
+    <a href="#logins">Site logins</a>
+    <a href="#tor">Dark web and Tor</a>
+    <a href="#privacy">What leaves your computer</a>
+    <a href="#terminal">Terminal reference</a>
+    <a href="#trouble">Troubleshooting</a>
+  </aside>
+
+  <article class="article">
+    <p class="kicker">Guide</p>
+    <h1>Using Panoptes</h1>
+    <p>This guide takes you from download to a finished case. If you only want the short version: install, type a username into the search bar, press Enter, and read the Overview.</p>
+
+    <h2 id="install">Install</h2>
+    <p>Panoptes runs on <b>Windows 10/11</b> and <b>Linux</b>, and needs <b>Python 3.11 or newer</b>.</p>
+    <h3>Windows</h3>
+    <ol>
+      <li>Install Python from <a href="https://www.python.org/downloads/">python.org</a>. On the first screen of the installer, tick <em>Add python.exe to PATH</em>.</li>
+      <li><a href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows.zip">Download Panoptes for Windows</a> and unzip it into a folder you'll keep, for example <code>Documents\Panoptes</code>. Panoptes runs from this folder, so don't delete it afterwards.</li>
+      <li>Double-click <code>install.bat</code>. It installs Panoptes and its optional extras, downloads the site databases, builds a small <code>Panoptes.exe</code> launcher and adds Desktop and Start Menu shortcuts.</li>
+    </ol>
+    <p><code>Panoptes.exe</code> is a tiny launcher for your installed Python, not a bundled interpreter, so antivirus software has nothing to object to. If you need Panoptes on a PC without Python, run <code>install.bat portable</code> to make a standalone build in <code>dist\</code>.</p>
+    <h3>Linux</h3>
+<pre><span class="p">$ </span>tar xzf panoptes-linux.tar.gz
+<span class="p">$ </span>cd panoptes-*/
+<span class="p">$ </span>./install.sh              <span class="c"># desktop app and every optional capability</span>
+<span class="p">$ </span>./install.sh --minimal    <span class="c"># terminal tool only</span></pre>
+    <p>The installer creates its own virtual environment in <code>~/.local/share/panoptes</code>, links <code>panoptes</code> and <code>panoptes-gui</code> into <code>~/.local/bin</code> and adds Panoptes to your applications menu. Nothing is installed system-wide. Run it again after downloading a newer release to update, or <code>./install.sh --uninstall</code> to remove it (your cases are kept).</p>
+    <p>Useful extras from your package manager:</p>
+    <table>
+      <tr><th>Package</th><th>What it adds</th></tr>
+      <tr><td><code>tor</code></td><td>Dark-web search and onion audits</td></tr>
+      <tr><td><code>libimage-exiftool-perl</code> (Debian/Ubuntu) or <code>perl-Image-ExifTool</code></td><td>Complete file and photo metadata</td></tr>
+      <tr><td><code>python3-venv</code> (Debian/Ubuntu)</td><td>Needed by the installer if it says it can't create a virtual environment</td></tr>
+      <tr><td><code>libxcb-cursor0</code></td><td>Fixes a Qt "xcb" error when the desktop app won't start</td></tr>
+    </table>
+    <h3>From source, any platform</h3>
+<pre><span class="p">$ </span>git clone https://github.com/Terrint-Creations/Panoptes
+<span class="p">$ </span>cd Panoptes
+<span class="p">$ </span>python -m pip install -e ".[all]"
+<span class="p">$ </span>panoptes update</pre>
+    <p>The extras are <code>gui</code>, <code>email</code>, <code>phone</code>, <code>faces</code>, <code>ocr</code>, <code>ai</code> and <code>all</code>.</p>
+
+    <h2 id="first">Your first search</h2>
+    <p>Open Panoptes and type into the search bar. Panoptes recognises what you typed:</p>
+    <table>
+      <tr><th>You type</th><th>Panoptes treats it as</th></tr>
+      <tr><td><code>jdoe42</code></td><td>A username, checked on thousands of sites</td></tr>
+      <tr><td><code>jane@example.com</code></td><td>An email address</td></tr>
+      <tr><td><code>+1 202 555 0143</code></td><td>A phone number (include the country code)</td></tr>
+      <tr><td><code>"Jane Doe"</code></td><td>A person's name</td></tr>
+      <tr><td><code>example.com</code>, <code>203.0.113.7</code></td><td>A domain or an IP address</td></tr>
+      <tr><td><code>40.6892, -74.0445</code></td><td>A location</td></tr>
+      <tr><td>A photo or document</td><td>A file: metadata, GPS, faces, text and reverse image search</td></tr>
+    </table>
+    <p>Separate several targets with <code>;</code>. If Panoptes guesses the wrong type, pick it from the type box or use <code>all</code> to try every reading.</p>
+    <p>Results stream in as each source finishes. A first quick pass shows the most likely accounts within seconds, then a thorough pass re-checks slow and blocked sites. Press <b>Stop</b> whenever you like: everything found so far is kept and summarised.</p>
+
+    <h2 id="reading">Reading a case</h2>
+    <h3>Overview</h3>
+    <p>An identity summary built from every finding: likely real name, aliases, emails, phones, locations, accounts and an exposure score, with the sources that back up each value. Below it are insights rated by severity, such as leaked passwords or a home address visible in a photo.</p>
+    <h3>Details</h3>
+    <p>Every finding with its evidence. The confidence column matters:</p>
+    <ul>
+      <li><b>85% and up:</b> strong. Confirmed by the site itself or by several independent sources.</li>
+      <li><b>50 to 85%:</b> likely, but worth checking yourself.</li>
+      <li><b>Below 50%:</b> a lead or a guess. Panoptes lists it but doesn't follow it unless something else backs it up.</li>
+    </ul>
+    <p>Each finding also shows what <em>corroborated</em> it and what <em>conflicts</em> with it. A profile whose real name contradicts the confirmed one is flagged so you don't merge two different people.</p>
+    <h3>Graph</h3>
+    <p>How everything connects, grouped by category. Click a node to inspect it. Right-click to run a new search from it, which extends the open case.</p>
+    <h3>Cases and exports</h3>
+    <p>Every search is saved automatically. Reopen old cases with File &gt; Open saved case, and export them from the File menu as HTML (with the graph), JSON, CSV or STIX 2.1 for OpenCTI and MISP.</p>
+
+    <h2 id="investigate">Full investigations</h2>
+    <p>When you know several things about one subject, use <b>Full investigation</b>. Enter everything you have, names, usernames, emails, phones, domains, companies, places, wallets, files and notes, and choose which capabilities to run. Everything you enter is treated as confirmed, which lets Panoptes verify weaker findings against it.</p>
+    <p>The <b>Capabilities</b> menu turns individual techniques on or off: cooperative mode, face recognition, reverse image search, the alternate-account finder, site learning and the dark web.</p>
+    <p><b>Resources</b> sets how hard Panoptes works your computer. <em>Light</em> uses fewer connections and a lower process priority so you can keep working, <em>Heavy</em> is the fastest. All three check the same sites and find the same results.</p>
+
+    <h2 id="keys">API keys</h2>
+    <p>Panoptes works without any keys. Some free or paid keys unlock more data. Add them in <b>Tools &gt; Settings &gt; API keys</b>, or with <code>panoptes config set NAME VALUE</code>.</p>
+    <table>
+      <tr><th>Key</th><th>What it adds</th></tr>
+      <tr><td><code>github_token</code></td><td>Higher GitHub rate limits (a token with no scopes is enough)</td></tr>
+      <tr><td><code>hibp_api_key</code></td><td>Have I Been Pwned breach lookups</td></tr>
+      <tr><td><code>brave_api_key</code></td><td>Reliable search-engine results (free tier)</td></tr>
+      <tr><td><code>google_cse_key</code>, <code>google_cse_cx</code></td><td>Google Programmable Search (free daily quota)</td></tr>
+      <tr><td><code>serpapi_key</code></td><td>Google results and Google Lens reverse image search</td></tr>
+      <tr><td><code>spotify_client_id</code>, <code>spotify_client_secret</code></td><td>Spotify profile names and pictures</td></tr>
+      <tr><td><code>opencorporates_api_token</code>, <code>companies_house_api_key</code></td><td>Company registries and officers</td></tr>
+      <tr><td><code>courtlistener_token</code></td><td>US court records</td></tr>
+      <tr><td><code>picarta_api_key</code>, <code>anthropic_api_key</code></td><td>AI estimates of where a photo was taken</td></tr>
+    </table>
+    <p>Settings lists every key with a link to where you get it. Keys can also be set as environment variables named <code>PANOPTES_</code> plus the key in capitals.</p>
+
+    <h2 id="logins">Site logins</h2>
+    <p>Some sites only show profiles to logged-in visitors. After a search, Panoptes lists the sites that blocked it. To include them, log in to that site in your browser <b>with a burner account</b>, copy the <code>Cookie</code> request header from the browser's developer tools (Network tab), and paste it into <b>Settings &gt; Logins &amp; sessions</b>:</p>
+<pre><span class="p">$ </span>panoptes login add linkedin.com "li_at=..."</pre>
+    <p>Each cookie is only ever sent to its own site. Instagram, X and Reddit have dedicated fields with extra features.</p>
+
+    <h2 id="tor">Dark web and Tor</h2>
+    <p>Dark-web search and onion audits need Tor. Panoptes uses, in order: a Tor proxy you set in Settings, a Tor that's already running (Tor Browser or the tor service), or its own private Tor instance. On Windows it downloads the official Tor Expert Bundle once from torproject.org. On Linux it uses the <code>tor</code> program from your package manager. Turn the dark web off with <code>--no-darkweb</code> or in Capabilities.</p>
+
+    <h2 id="privacy">What leaves your computer</h2>
+    <p>Panoptes has no account, no telemetry and no server of its own. Your cases, settings, keys and cookies are stored in <code>~/.panoptes</code> on your computer. To search, it does contact the sites and services it checks, which means those sites see the searches. Two things to be aware of:</p>
+    <ul>
+      <li><b>Reverse image search uploads local photos to Yandex.</b> Turn it off with <code>--no-reverse-image</code> or in Capabilities.</li>
+      <li><b>AI image analysis</b> sends photos to the provider you configured, only if you added a key.</li>
+    </ul>
+    <p>Use a proxy or Tor (Settings &gt; Network) if you don't want sites to see your IP address.</p>
+
+    <h2 id="terminal">Terminal reference</h2>
+<pre><span class="p">$ </span>panoptes search TARGET [TARGET ...]   <span class="c"># one or more targets, type auto-detected</span>
+<span class="p">$ </span>panoptes investigate                  <span class="c"># interactive full investigation</span>
+<span class="p">$ </span>panoptes sources                      <span class="c"># every source and whether it's ready</span>
+<span class="p">$ </span>panoptes update                       <span class="c"># refresh the site databases</span>
+<span class="p">$ </span>panoptes gui                          <span class="c"># open the desktop app</span>
+<span class="p">$ </span>panoptes cases list | show N | export N FILE | delete N
+<span class="p">$ </span>panoptes config show | set KEY VALUE | unset KEY
+<span class="p">$ </span>panoptes login add SITE "COOKIE" | list | remove SITE</pre>
+    <h3>Useful search options</h3>
+    <table>
+      <tr><th>Option</th><th>Effect</th></tr>
+      <tr><td><code>-t, --type</code></td><td>Force the type: username, email, phone, name, company, domain, ip, location, file, crypto, onion, all</td></tr>
+      <tr><td><code>-d, --depth</code></td><td>How many hops of new leads to follow (0 to 4, default 1)</td></tr>
+      <tr><td><code>-s, --scope</code></td><td>Username site list: quick, standard or full</td></tr>
+      <tr><td><code>-o, --output</code></td><td>Write a report: <code>.html</code>, <code>.json</code>, <code>.csv</code> or <code>.stix.json</code></td></tr>
+      <tr><td><code>-P, --profile</code></td><td>light, balanced or heavy</td></tr>
+      <tr><td><code>--nsfw</code></td><td>Include adult sites in username checks</td></tr>
+      <tr><td><code>--name-perms</code></td><td>Turn a full name into candidate usernames and search them</td></tr>
+      <tr><td><code>--passive</code></td><td>No active DNS (no brute force or zone transfers)</td></tr>
+      <tr><td><code>--only</code>, <code>--skip</code></td><td>Run only, or skip, the named sources</td></tr>
+      <tr><td><code>--no-coop --no-faces --no-reverse-image --no-alts --no-discovery --no-darkweb --no-websearch</code></td><td>Turn individual capabilities off</td></tr>
+    </table>
+    <p>Run <code>panoptes search --help</code> for the complete list.</p>
+
+    <h2 id="trouble">Troubleshooting</h2>
+    <ul>
+      <li><b>Few or no accounts found:</b> run <code>panoptes update</code> to refresh the site databases, and check your connection or proxy.</li>
+      <li><b>Lots of "rate-limited" sites:</b> use the Light profile, add API keys, or try again later. Some sites limit how often one IP can check them.</li>
+      <li><b>The desktop app won't start:</b> run <code>panoptes gui</code> in a terminal to see the error. Logs are in <code>~/.panoptes/logs/panoptes.log</code> (Tools &gt; Open log folder).</li>
+      <li><b>Windows says Python isn't found:</b> reinstall Python with <em>Add python.exe to PATH</em> ticked, then run <code>install.bat</code> again.</li>
+    </ul>
+    <p>Still stuck? <a href="https://github.com/Terrint-Creations/Panoptes/issues">Open an issue on GitHub</a>. Never include a real person's data in an issue.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="https://www.terrint.com">A Terrint Creations project</a>
+    <span>GPL-3.0 · Free forever</span>
+    <nav>
+      <a href="./">Home</a>
+      <a href="https://github.com/Terrint-Creations/Panoptes">GitHub</a>
+      <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/CONTRIBUTING.md">Contributing</a>
+      <a href="https://www.terrint.com">terrint.com</a>
+    </nav>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
