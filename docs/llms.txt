@@ -1,0 +1,11 @@
+# Panoptes
+
+> Panoptes is a free, open source (GPL-3.0) OSINT tool for Windows and Linux by Terrint Creations. One search runs every relevant technique on a username, email, phone number, name, photo, domain or IP, then merges duplicate results, cross-checks them, scores confidence and follows new leads. It combines original code with the ideas and data behind open source tools such as Sherlock, WhatsMyName, Maigret, Holehe, PhoneInfoga, theHarvester and SpiderFoot. It has a desktop app and a command-line tool.
+
+- [Home](https://www.panoptes.terrint.com/): what Panoptes is, how it works, capabilities, downloads, joining the project
+- [Guide](https://www.panoptes.terrint.com/guide.html): install, first search, reading a case, API keys, site logins, Tor, privacy, terminal reference, troubleshooting
+- [Download for Windows](https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows-x64.zip): ready-to-run app, no Python needed
+- [Download for Linux](https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-linux-x64.tar.gz): ready-to-run app, no Python needed
+- [Source code](https://github.com/Terrint-Creations/Panoptes): GitHub repository, issues and contributions
+
+Panoptes is free forever. Only use it to investigate people and organisations you have a legitimate reason and the legal right to look into.
