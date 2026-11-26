@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.1
+
+- Ready-to-run downloads: `Panoptes-windows-x64.zip` and `Panoptes-linux-x64.tar.gz` contain the
+  desktop app, the terminal tool and a private Python runtime. Nothing else to install.
+- Windows: `Panoptes.exe` (desktop) and `panoptes-cli.exe` (terminal), plus `Add shortcuts.cmd`.
+- Linux: `panoptes-gui` and `panoptes` launchers, plus `install.sh` for a menu entry and PATH links.
+- The desktop app now depends on PySide6-Essentials instead of the full PySide6, which makes every
+  install much smaller.
+
 ## 1.0.0 - first public release
 
 - Panoptes is now public, open source under the GPL-3.0, and free forever.

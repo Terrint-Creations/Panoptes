@@ -386,8 +386,8 @@ class GoogleAccountSource(Source):
         if tz:
             yield Finding(category="profile", title="Calendar time zone", value=tz.group(1).strip(), confidence=0.85, **base)
         for loc in locations[:15]:
-            yield Finding(category="location", title="Calendar event location", value=loc.replace("\,", ","),
+            yield Finding(category="location", title="Calendar event location", value=loc.replace("\\,", ","),
                           confidence=0.7, **base)
         for ev in events[:15]:
-            yield Finding(category="lead", title="Calendar event", value=ev.strip().replace("\,", ","),
+            yield Finding(category="lead", title="Calendar event", value=ev.strip().replace("\\,", ","),
                           confidence=0.7, **base)

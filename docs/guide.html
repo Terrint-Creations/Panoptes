@@ -7,7 +7,12 @@
 <meta name="description" content="How to install Panoptes on Windows and Linux, run your first search, read the results, add API keys and logins, and use the terminal.">
 <meta name="theme-color" content="#0f0e0c">
 <link rel="canonical" href="https://www.panoptes.terrint.com/guide.html">
-<link rel="icon" href="assets/panoptes.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/assets/icon-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="/assets/panoptes.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -51,34 +56,35 @@
     <p>This guide takes you from download to a finished case. If you only want the short version: install, type a username into the search bar, press Enter, and read the Overview.</p>
 
     <h2 id="install">Install</h2>
-    <p>Panoptes runs on <b>Windows 10/11</b> and <b>Linux</b>, and needs <b>Python 3.11 or newer</b>.</p>
+    <p>The downloads on this site are ready-to-run apps for <b>Windows 10/11</b> and <b>Linux</b> (64-bit). Each one contains the desktop app, the terminal tool and its own private copy of Python, so there's nothing else to install. If you want the project files to read or change the code, get them from <a href="https://github.com/Terrint-Creations/Panoptes">GitHub</a> instead (see <a href="#source">From source</a>).</p>
     <h3>Windows</h3>
     <ol>
-      <li>Install Python from <a href="https://www.python.org/downloads/">python.org</a>. On the first screen of the installer, tick <em>Add python.exe to PATH</em>.</li>
-      <li><a href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows.zip">Download Panoptes for Windows</a> and unzip it into a folder you'll keep, for example <code>Documents\Panoptes</code>. Panoptes runs from this folder, so don't delete it afterwards.</li>
-      <li>Double-click <code>install.bat</code>. It installs Panoptes and its optional extras, downloads the site databases, builds a small <code>Panoptes.exe</code> launcher and adds Desktop and Start Menu shortcuts.</li>
+      <li><a href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows-x64.zip">Download Panoptes for Windows</a> and unzip it into a folder you'll keep, for example <code>Documents\Panoptes</code>.</li>
+      <li>Double-click <code>Panoptes.exe</code> to open the desktop app.</li>
+      <li>Optional: double-click <code>Add shortcuts.cmd</code> to put Panoptes on your Desktop and in the Start Menu.</li>
     </ol>
-    <p><code>Panoptes.exe</code> is a tiny launcher for your installed Python, not a bundled interpreter, so antivirus software has nothing to object to. If you need Panoptes on a PC without Python, run <code>install.bat portable</code> to make a standalone build in <code>dist\</code>.</p>
+    <p>For the terminal, open a Command Prompt or PowerShell in that folder and run <code>panoptes-cli.exe search jdoe42</code> or <code>panoptes-cli.exe --help</code>. Wherever this guide says <code>panoptes</code>, use <code>panoptes-cli.exe</code> on Windows.</p>
+    <p>Because Panoptes is new and not code-signed, Windows SmartScreen may say it protected your PC the first time. Choose <em>More info</em>, then <em>Run anyway</em>. To update, download the new version and replace the folder: your cases and settings live in <code>%USERPROFILE%\.panoptes</code> and are kept.</p>
     <h3>Linux</h3>
-<pre><span class="p">$ </span>tar xzf panoptes-linux.tar.gz
-<span class="p">$ </span>cd panoptes-*/
-<span class="p">$ </span>./install.sh              <span class="c"># desktop app and every optional capability</span>
-<span class="p">$ </span>./install.sh --minimal    <span class="c"># terminal tool only</span></pre>
-    <p>The installer creates its own virtual environment in <code>~/.local/share/panoptes</code>, links <code>panoptes</code> and <code>panoptes-gui</code> into <code>~/.local/bin</code> and adds Panoptes to your applications menu. Nothing is installed system-wide. Run it again after downloading a newer release to update, or <code>./install.sh --uninstall</code> to remove it (your cases are kept).</p>
+<pre><span class="p">$ </span>tar xzf Panoptes-linux-x64.tar.gz
+<span class="p">$ </span>./panoptes/panoptes-gui                 <span class="c"># desktop app</span>
+<span class="p">$ </span>./panoptes/panoptes search jdoe42       <span class="c"># terminal</span>
+<span class="p">$ </span>./panoptes/install.sh                   <span class="c"># optional: app menu entry + commands on your PATH</span></pre>
+    <p>Keep the <code>panoptes</code> folder somewhere permanent, such as <code>~/Apps</code>. <code>install.sh</code> links <code>panoptes</code> and <code>panoptes-gui</code> into <code>~/.local/bin</code> and adds Panoptes to your applications menu; <code>./install.sh --uninstall</code> removes them. Nothing is installed system-wide.</p>
     <p>Useful extras from your package manager:</p>
     <table>
       <tr><th>Package</th><th>What it adds</th></tr>
       <tr><td><code>tor</code></td><td>Dark-web search and onion audits</td></tr>
       <tr><td><code>libimage-exiftool-perl</code> (Debian/Ubuntu) or <code>perl-Image-ExifTool</code></td><td>Complete file and photo metadata</td></tr>
-      <tr><td><code>python3-venv</code> (Debian/Ubuntu)</td><td>Needed by the installer if it says it can't create a virtual environment</td></tr>
       <tr><td><code>libxcb-cursor0</code></td><td>Fixes a Qt "xcb" error when the desktop app won't start</td></tr>
     </table>
-    <h3>From source, any platform</h3>
+    <h3 id="source">From source, any platform</h3>
+    <p>For developers, or to run Panoptes with your own Python 3.11+:</p>
 <pre><span class="p">$ </span>git clone https://github.com/Terrint-Creations/Panoptes
 <span class="p">$ </span>cd Panoptes
 <span class="p">$ </span>python -m pip install -e ".[all]"
 <span class="p">$ </span>panoptes update</pre>
-    <p>The extras are <code>gui</code>, <code>email</code>, <code>phone</code>, <code>faces</code>, <code>ocr</code>, <code>ai</code> and <code>all</code>.</p>
+    <p>The repository also has <code>install.bat</code> (Windows) and <code>install.sh</code> (Linux) for a source install with shortcuts. The extras are <code>gui</code>, <code>email</code>, <code>phone</code>, <code>faces</code>, <code>ocr</code>, <code>ai</code> and <code>all</code>.</p>
 
     <h2 id="first">Your first search</h2>
     <p>Open Panoptes and type into the search bar. Panoptes recognises what you typed:</p>
@@ -178,7 +184,7 @@
       <li><b>Few or no accounts found:</b> run <code>panoptes update</code> to refresh the site databases, and check your connection or proxy.</li>
       <li><b>Lots of "rate-limited" sites:</b> use the Light profile, add API keys, or try again later. Some sites limit how often one IP can check them.</li>
       <li><b>The desktop app won't start:</b> run <code>panoptes gui</code> in a terminal to see the error. Logs are in <code>~/.panoptes/logs/panoptes.log</code> (Tools &gt; Open log folder).</li>
-      <li><b>Windows says Python isn't found:</b> reinstall Python with <em>Add python.exe to PATH</em> ticked, then run <code>install.bat</code> again.</li>
+      <li><b>Windows blocks Panoptes.exe:</b> choose <em>More info</em> and <em>Run anyway</em>. If your antivirus removed a file, restore it or download Panoptes again.</li>
     </ul>
     <p>Still stuck? <a href="https://github.com/Terrint-Creations/Panoptes/issues">Open an issue on GitHub</a>. Never include a real person's data in an issue.</p>
   </article>

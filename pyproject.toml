@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "panoptes"
-version = "1.0.0"
+version = "1.0.1"
 description = "The many-eyed OSINT tool. One search, every source, merged and verified results."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -34,13 +34,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-gui = ["PySide6>=6.6"]
+gui = ["PySide6-Essentials>=6.6"]
 email = ["holehe>=1.61"]
 phone = ["ignorant>=1.2"]
 faces = ["opencv-python-headless>=4.8", "numpy"]
 ocr = ["rapidocr-onnxruntime>=1.3"]
 ai = ["anthropic>=1.0"]
-all = ["PySide6>=6.6", "holehe>=1.61", "ignorant>=1.2", "opencv-python-headless>=4.8", "numpy",
+all = ["PySide6-Essentials>=6.6", "holehe>=1.61", "ignorant>=1.2", "opencv-python-headless>=4.8", "numpy",
        "rapidocr-onnxruntime>=1.3", "anthropic>=1.0"]
 
 [project.urls]

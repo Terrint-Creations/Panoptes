@@ -7,7 +7,20 @@
 <meta name="description" content="Panoptes is a free, open source OSINT tool for Windows and Linux. One search fans out to hundreds of techniques and thousands of sites, then merges, verifies and follows what it finds.">
 <meta name="theme-color" content="#0f0e0c">
 <link rel="canonical" href="https://www.panoptes.terrint.com/">
-<link rel="icon" href="assets/panoptes.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/icon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/assets/icon-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="/assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="icon" href="/assets/panoptes.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Panoptes","url":"https://www.panoptes.terrint.com/",
+ "description":"Free, open source OSINT tool for Windows and Linux. One search runs every relevant technique, then merges, verifies and follows what it finds.",
+ "applicationCategory":"SecurityApplication","operatingSystem":"Windows 10, Windows 11, Linux","softwareVersion":"1.0.1",
+ "license":"https://www.gnu.org/licenses/gpl-3.0.html","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "downloadUrl":"https://www.panoptes.terrint.com/#download","image":"https://www.panoptes.terrint.com/assets/icon-512.png",
+ "publisher":{"@type":"Organization","name":"Terrint Creations","url":"https://www.terrint.com/"}}
+</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Panoptes · the many-eyed OSINT tool">
 <meta property="og:description" content="One search. Every source. Merged, verified, followed. Free and open source, forever.">
@@ -48,7 +61,7 @@
     <h1>A hundred eyes on <em>one</em> question.</h1>
     <p class="lede">Give Panoptes whatever you know about a subject: a username, an email, a phone number, a name, a photo or a domain. It sends that to every technique that can say something about it, then merges what comes back, checks it against itself, scores it and follows the leads.</p>
     <div class="cta">
-      <a class="btn solid" href="#download">Download Panoptes <small data-version>v1.0.0</small></a>
+      <a class="btn solid" href="#download">Download Panoptes <small data-version>v1.0.1</small></a>
       <a class="btn" href="guide.html">Read the guide</a>
     </div>
     <p class="meta-line"><span>GPL-3.0</span><span>Free forever</span><span>No account, no telemetry</span></p>
@@ -178,30 +191,32 @@
       <div class="dl">
         <div>
           <h3>Windows</h3>
-          <p class="req">Windows 10 or 11 · Python 3.11+</p>
+          <p class="req">Windows 10 or 11 · 64-bit · nothing else to install</p>
           <ol>
-            <li>Install Python from <a href="https://www.python.org/downloads/">python.org</a> and tick <em>Add python.exe to PATH</em>.</li>
-            <li>Unzip Panoptes into a folder you'll keep, like Documents.</li>
-            <li>Double-click <code>install.bat</code>. Panoptes appears on your Desktop and in the Start Menu.</li>
+            <li>Unzip the download into a folder you'll keep, like Documents.</li>
+            <li>Open <code>Panoptes.exe</code> for the desktop app, or run <code>panoptes-cli.exe</code> in a terminal.</li>
+            <li>Optional: run <code>Add shortcuts.cmd</code> to put Panoptes on your Desktop and in the Start Menu.</li>
           </ol>
-          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows.zip">Download for Windows <small>.zip</small></a>
+          <p class="note" style="margin:0 0 22px">Panoptes is new and unsigned, so Windows may say it protected your PC the first time. Choose <em>More info</em>, then <em>Run anyway</em>.</p>
+          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-windows-x64.zip">Download for Windows <small>.zip</small></a>
         </div>
         <div>
           <h3>Linux</h3>
-          <p class="req">Any modern distro · Python 3.11+</p>
+          <p class="req">x86-64 · most distros from 2018 on · nothing else to install</p>
           <ol>
-            <li>Unpack the archive: <code>tar xzf panoptes-linux.tar.gz</code></li>
-            <li>Run <code>./install.sh</code> inside the folder. Nothing is installed system-wide.</li>
-            <li>Start <code>panoptes-gui</code> from your app menu, or <code>panoptes</code> in a terminal.</li>
+            <li>Unpack it: <code>tar xzf Panoptes-linux-x64.tar.gz</code></li>
+            <li>Start <code>./panoptes/panoptes-gui</code> for the desktop app, or <code>./panoptes/panoptes</code> in a terminal.</li>
+            <li>Optional: run <code>./panoptes/install.sh</code> to add it to your app menu and your PATH.</li>
           </ol>
-          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/panoptes-linux.tar.gz">Download for Linux <small>.tar.gz</small></a>
+          <a class="btn solid" href="https://github.com/Terrint-Creations/Panoptes/releases/latest/download/Panoptes-linux-x64.tar.gz">Download for Linux <small>.tar.gz</small></a>
         </div>
       </div>
       <div class="dl-more">
+        <span>These are the ready-to-run apps with the desktop app and the terminal tool. Want the project files instead? <a href="https://github.com/Terrint-Creations/Panoptes">Get the source on GitHub</a>.</span>
+      </div>
+      <div class="dl-more">
         <a href="https://github.com/Terrint-Creations/Panoptes/releases">All releases</a>
-        <a href="https://github.com/Terrint-Creations/Panoptes">Source code</a>
         <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/CHANGELOG.md">What's new</a>
-        <span>Or: <code>pip install "panoptes[all] @ git+https://github.com/Terrint-Creations/Panoptes"</code></span>
       </div>
     </div>
   </div>
@@ -238,7 +253,7 @@
         <p>Membership is voluntary and unpaid. It may come with triage or write access to the repository.</p>
         <p><strong>Joining the Panoptes project does not make you part of Terrint Creations.</strong> It doesn't create employment, a partnership or any right to speak for Terrint. Read the <a href="https://github.com/Terrint-Creations/Panoptes/blob/main/GOVERNANCE.md">governance notes</a>.</p>
       </div>
-      <form action="https://formsubmit.co/FORMSUBMIT_ID" method="POST">
+      <form action="https://formsubmit.co/ccc86351abe077a2b1b01d07bdfd1e48" method="POST">
         <input type="hidden" name="_subject" value="Panoptes: request to join the project">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://www.panoptes.terrint.com/thanks.html">

@@ -38,34 +38,25 @@ open for everyone who comes after.
 
 ## Install
 
-Panoptes needs **Python 3.11 or newer**. Download the
-[latest release](https://github.com/Terrint-Creations/Panoptes/releases/latest) (or `git clone` this
-repository), then:
+**Ready-to-run apps** (no Python or anything else needed). Download from
+[panoptes.terrint.com](https://www.panoptes.terrint.com/#download) or the
+[latest release](https://github.com/Terrint-Creations/Panoptes/releases/latest):
 
-**Windows**
+| | Download | Run |
+|---|---|---|
+| **Windows 10/11** (64-bit) | `Panoptes-windows-x64.zip` | Unzip, open `Panoptes.exe` (desktop) or `panoptes-cli.exe` (terminal). `Add shortcuts.cmd` adds Desktop and Start Menu shortcuts. |
+| **Linux** (x86-64) | `Panoptes-linux-x64.tar.gz` | Unpack, run `./panoptes/panoptes-gui` or `./panoptes/panoptes`. `./panoptes/install.sh` adds a menu entry and puts both on your PATH. |
 
-1. Install Python from [python.org](https://www.python.org/downloads/) (tick *Add python.exe to PATH*).
-2. Unzip Panoptes somewhere permanent, for example `Documents\Panoptes`.
-3. Double-click `install.bat`.
+Each download contains only the app and a private Python runtime. Windows may show a SmartScreen
+warning the first time because Panoptes isn't code-signed: choose *More info*, then *Run anyway*.
+For the dark-web sources on Linux, install Tor (`sudo apt install tor`).
 
-This installs Panoptes into your Python, builds a small `Panoptes.exe` launcher and adds Desktop and
-Start Menu shortcuts. `Panoptes.exe` doesn't bundle an interpreter, so antivirus heuristics have
-nothing to object to, and it always runs the current code. `install.bat portable` produces a
-standalone PyInstaller build for a PC without Python instead.
+**From source.** Needs Python 3.11 or newer. Clone this repository, then:
 
-**Linux**
-
-```bash
-tar xzf panoptes-*.tar.gz && cd panoptes-*/     # or: git clone https://github.com/Terrint-Creations/Panoptes
-./install.sh                                    # desktop app + every optional capability
-./install.sh --minimal                          # terminal only
-```
-
-`install.sh` uses its own virtual environment in `~/.local/share/panoptes`, links `panoptes` and
-`panoptes-gui` into `~/.local/bin` and adds Panoptes to your applications menu. Nothing is installed
-system-wide. For the dark-web sources install Tor (`sudo apt install tor`), and for full file
-metadata install ExifTool (`sudo apt install libimage-exiftool-perl`). If the desktop app reports a
-Qt "xcb" error, install `libxcb-cursor0`.
+- Windows: double-click `install.bat`. It installs Panoptes into your Python, builds a small
+  `Panoptes.exe` launcher and adds Desktop and Start Menu shortcuts.
+- Linux: run `./install.sh` (or `./install.sh --minimal` for the terminal only). It uses its own
+  virtual environment in `~/.local/share/panoptes` and adds an applications-menu entry.
 
 **Any platform, by hand**
 
