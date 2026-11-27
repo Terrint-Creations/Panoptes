@@ -15,9 +15,9 @@ A free and open source OSINT tool for Windows and Linux.</p>
 
 ---
 
-In Greek myth, Argus Panoptes was the giant with a hundred eyes. Some of them were always open, so
-nothing escaped him. This tool is built the same way: many eyes, each one an OSINT technique, all
-watching the same subject at once.
+In Greek myth, Argus Panoptes was a giant covered in eyes who used them to watch and see
+everything. His name means all-seeing. This tool is built the same way: many eyes, each one an
+OSINT technique, all looking at the same subject at once.
 
 Panoptes combines original code with the ideas and data behind well known open source OSINT tools
 (Sherlock, WhatsMyName, Maigret, Holehe, PhoneInfoga, theHarvester, SpiderFoot and many more). It
@@ -50,6 +50,7 @@ open for everyone who comes after.
 Each download contains only the app and a private Python runtime. Windows may show a SmartScreen
 warning the first time because Panoptes isn't code-signed: choose *More info*, then *Run anyway*.
 For the dark-web sources on Linux, install Tor (`sudo apt install tor`).
+Apple (macOS) support is coming soon.
 
 **From source.** Needs Python 3.11 or newer. Clone this repository, then:
 
